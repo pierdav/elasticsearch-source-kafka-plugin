@@ -104,8 +104,8 @@ curl -u elastic:elastic -X POST "localhost:9200/.eska/_doc/settings" -H 'Content
 
 # Contribute
 
-- Source Code: https://github.com/pierdavprod/elasticsearch-source-kafka
-- Issue Tracker: https://github.com/pierdavprod/elasticsearch-source-kafka/issues
+- Source Code: https://github.com/pierdav/elasticsearch-source-kafka-plugin
+- Issue Tracker: https://github.com/pierdav/elasticsearch-source-kafka-plugin/issues
 - Learn how to work with the plugin's source code by reading our [Development and Contribution guidelines](CONTRIBUTING.md).
 
 ## License
