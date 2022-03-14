@@ -1,0 +1,7 @@
+host: localhost
+port: 9092
+protocol: https
+index: .eska
+docId: settings
+username: elastic
+password: changeme
