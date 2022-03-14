@@ -110,5 +110,5 @@ curl -u elastic:elastic -X POST "localhost:9200/.eska/_doc/settings" -H 'Content
 
 ## License
 
-This repository is licensed under the [MIT license](LICENSE-CODE).
+This repository is licensed under the [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0.
 
