@@ -24,6 +24,9 @@ mvn clean package
 
 # Configuring
 ## Configure Elasticsearch Plugin access
+*this step is optional*
+
+Edit configuration file to access to settings document
 ```
 vi eska-config.yml
 
@@ -48,10 +51,12 @@ add this line to jvm.options in Elasticsearch config directory:
 ```
 -Djava.security.policy=/usr/share/elasticsearch/config/elasticsearch-source-kafka-plugin-security.policy 
 ```
+
 then copy policy file to Elasticsearch config directory:
 ```
 cp ./elasticsearch-source-kafka-plugin-security.policy /usr/share/elasticsearch/config/
 ```
+*this file allows to give permissions to plugin*
 
 ## Install Elasticsearch Source Kafka Plugin
 ```
@@ -64,6 +69,26 @@ service elasticsearch restart
 ```
 
 ## Create an Elasticsearch Source Kafka Settings
+
+This Elasticsearch document allows you to define your settings
+
+**brokers:** an array of Kafka brokers access config object
+- name: define a name of broker
+- type: unique kafka
+- host: domain or IP server of Kafka broker
+- port: port server of Kafka broker
+
+**pipelines:** an array of treatment stream config object
+**- active: **true / false
+**- tag:** define a tag of pipeline
+**- name:** define a name of pipeline
+**- indices: **an array of index - wildcard `*` accepted
+**- ids:** an array of id - wildcard `*` accepted
+**- operations:** an array of operation - values accepted : **INDEX** or **CREATE**
+**- render:** the path to render message value
+**- broker:** name of broker defined in brokers array
+**- topic:** name of topic in Kafka broker
+
 ```
 curl -u elastic:elastic -X POST "localhost:9200/.eska/_doc/settings" -H 'Content-Type: application/json' -d'
 {
@@ -72,10 +97,7 @@ curl -u elastic:elastic -X POST "localhost:9200/.eska/_doc/settings" -H 'Content
                 "name": "kafka01",
                 "type": "kafka",
                 "host": "localhost",
-                "port": 9092,
-                "protocol": "ssl",
-                "username": "kafka",
-                "password": "changeme"
+                "port": 9092
             }
         ],
         "pipelines": [
