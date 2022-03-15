@@ -79,15 +79,15 @@ This Elasticsearch document allows you to define your settings
 - port: port server of Kafka broker
 
 **pipelines:** an array of treatment stream config object
-**- active: **true / false
-**- tag:** define a tag of pipeline
-**- name:** define a name of pipeline
-**- indices: **an array of index - wildcard `*` accepted
-**- ids:** an array of id - wildcard `*` accepted
-**- operations:** an array of operation - values accepted : **INDEX** or **CREATE**
-**- render:** the path to render message value
-**- broker:** name of broker defined in brokers array
-**- topic:** name of topic in Kafka broker
+- active: true / false
+- tag: define a tag of pipeline
+- name: define a name of pipeline
+- indices: an array of index - wildcard `*` accepted
+- ids: an array of id - wildcard `*` accepted
+- operations: an array of operation - values accepted : **INDEX** or **CREATE**
+- render: the path to render message value
+- broker: name of broker defined in brokers array
+- topic: name of topic in Kafka broker
 
 ```
 curl -u elastic:elastic -X POST "localhost:9200/.eska/_doc/settings" -H 'Content-Type: application/json' -d'
